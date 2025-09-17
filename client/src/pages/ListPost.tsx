@@ -221,23 +221,27 @@ export default function ListPost() {
         </Modal.Footer>
       </Modal>
 
-      {/* Table hiển thị danh sách */}
-      {notFound ? (
-        <p style={{ marginTop: "20px", color: "red" }}>
-          Không có kết quả tìm kiếm
-        </p>
-      ) : (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tiêu đề</th>
-              <th>Hình ảnh</th>
-              <th>Ngày viết</th>
-              <th style={{ minWidth: "180px" }}>Trạng thái</th>
-              <th>Chức năng</th>
-            </tr>
-          </thead>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tiêu đề</th>
+            <th>Hình ảnh</th>
+            <th>Ngày viết</th>
+            <th style={{ minWidth: "180px" }}>Trạng thái</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        {notFound ? (
+          <p
+            style={{
+              margin: "20px",
+              color: "gray",
+            }}
+          >
+            Không có kết quả tìm kiếm
+          </p>
+        ) : (
           <tbody>
             {posts.map((post, index) => (
               <tr key={post.id}>
@@ -264,8 +268,8 @@ export default function ListPost() {
               </tr>
             ))}
           </tbody>
-        </Table>
-      )}
+        )}
+      </Table>
     </div>
   );
 }
